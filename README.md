@@ -1,6 +1,6 @@
 # Multi-Cloud Network Reachability Analyzer
 
-[![Version](https://img.shields.io/badge/version-4.2.0-blue.svg)](https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer/releases/tag/v4.2.0)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer/releases/tag/v1.0.0)
 [![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Clouds](https://img.shields.io/badge/clouds-AWS%20|%20Azure%20|%20GCP-orange.svg)](#supported-clouds)
@@ -63,7 +63,7 @@ A comprehensive multi-cloud tool to analyze network infrastructure and find the 
 - **Unified Schema**: Consistent output format across all clouds for automation
 - **CI/CD Ready**: Exit codes for automation pipelines (0=success, 1=partial, 2=error)
 
-### Advanced Features (v4.1.0+)
+### Advanced Features
 - **Caching**: Cache discovery results to speed up re-runs (TTL configurable)
 - **Resumable Scans**: Resume interrupted organization scans by scan ID
 - **Progress Tracking**: Enhanced progress bar with ETA, throughput, and success/failure counts
@@ -130,7 +130,7 @@ A comprehensive multi-cloud tool to analyze network infrastructure and find the 
 
 ```bash
 # Install directly from GitHub (includes all cloud SDKs)
-pip install git+https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer.git@v4.2.0
+pip install git+https://github.com/yash-jhunjhunwala/multi-cloud-network-analyzer.git@v1.0.0
 
 # Verify installation
 aws-network-analyzer --version
@@ -299,7 +299,7 @@ aws-network-analyzer --cloud aws --mode org --parallel 5 --parallel-accounts 10
 
 ### Console Output
 ```
-GCP Network Reachability Analyzer v4.0.0
+GCP Network Reachability Analyzer v1.0.0
 Project: my-project-1513669048551
 
 Analyzing GCP network infrastructure...
@@ -399,7 +399,7 @@ Primary location covers 81.5% of instances. Multi-region deployment recommended.
 | `3` | Timeout | Global timeout exceeded |
 | `130` | Interrupted | User pressed Ctrl+C |
 
-## Enhanced Features (v4.1.0+)
+## Enhanced Features
 
 ### HTML Reports
 
@@ -726,35 +726,17 @@ aws-network-analyzer --cloud gcp --mode org --dry-run
 
 See [CHANGELOG.md](CHANGELOG.md) for full version history.
 
-### v4.2.0 (2025-02-03)
-- **New Modular Architecture** - Code refactoring for better maintainability
-  - `base.py` - Shared base classes, constants, enums, data models
-  - `utils.py` - Retry logic, progress indicators, CIDR utilities
-  - `exporters.py` - JSON, CSV, Summary exporters
-- Unified retry logic across all cloud providers
-- Single source of truth for VERSION constant
-
-### v4.1.0 (2026-02-03)
-- **HTML Reports** - D3.js network topology visualization
-- **Caching System** - Speed up re-runs with cached discovery data
-- **Resumable Scans** - Resume interrupted organization scans
-- **Enhanced Progress Tracking** - ETA, throughput, success/failure counts
-- **Expanded Test Suite** - 36+ unit tests
-
-### v4.0.0 (2026-02-03)
-- **Multi-Cloud Support** - Added Azure and GCP analyzers
-- **Unified CLI** - Single `--cloud` flag to switch between AWS, Azure, GCP
-- **All SDKs Included** - No optional extras needed
-- **Azure Optimization** - Single-fetch architecture to avoid throttling
-
-### v3.2.0
-- Flexible AWS credential options (--access-key, --secret-key, --session-token)
-- Fixed pip installation CLI issues
-
-### v3.0.0
-- Organization-wide analysis for AWS
-- Full coverage plan with greedy set cover algorithm
-- HTML report generation
+### v1.0.0 (2025-02-05)
+- **First Stable Release** - Production-ready multi-cloud network analyzer
+- **Multi-Cloud Support** - AWS, Azure, and GCP with unified CLI
+- **Organization-Wide Scanning** - Scan entire AWS Organizations, Azure Tenants, GCP Organizations
+- **VPC/VNet Peering Detection** - Automatically detect peered networks
+- **Transit Gateway Support** - Detect AWS Transit Gateway attachments
+- **Internet Access Detection** - AWS (IGW, NAT), Azure (Public IP, NAT), GCP (External IP, Cloud NAT)
+- **Smart Recommendations** - Optimal scanner deployment locations
+- **Multiple Output Formats** - JSON, CSV, HTML with D3.js visualization
+- **Caching & Resume** - Cache results and resume interrupted scans
+- **Progress Tracking** - Real-time progress with ETA estimates
 
 ## Contributing
 
